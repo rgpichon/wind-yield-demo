@@ -1,0 +1,417 @@
+{
+  "version": "v0.1",
+  "label": "ERA5-derived, project-computed, WindGen v0.1, exploratory",
+  "sources": "ERA5-derived, project-computed",
+  "acceptance_hash": "8c5ff18de013e4e87304080717f3b6ba95ef66a3",
+  "built_utc": "2026-11-01T19:18:08Z",
+  "git_hash": "ffa3b9691de3c4677bcfe1e0f583a425b0fa0e23",
+  "unit": "0.01 m/s",
+  "unit_note": "All speed series are integers in units of 0.01 m/s (divide by 100 for m/s).",
+  "height_m": 100,
+  "start": "2027-01",
+  "n_months": 120,
+  "level_blend": 0.0,
+  "slow_swing_pct": 0.0,
+  "drift_summer_extra": 0.0,
+  "n_draws_band": 2000,
+  "path_seeds": [
+    11,
+    22,
+    33
+  ],
+  "grid": {
+    "volatility": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "persistence": [
+      0.0,
+      1.0
+    ],
+    "drift_pct_per_decade": [
+      -3.0,
+      -1.5,
+      0.0,
+      1.5,
+      3.0
+    ],
+    "steadiness": [
+      0.7,
+      0.85,
+      1.0,
+      1.15,
+      1.3
+    ]
+  },
+  "defaults": {
+    "place_id": "UK",
+    "volatility": 1.0,
+    "persistence": 1.0,
+    "drift_pct_per_decade": 0.0,
+    "steadiness": 1.0,
+    "seed_index": 0
+  },
+  "open_caveats": [
+    "UK 2021-class extremes not fully validated",
+    "Nordic month-to-month persistence uncertain",
+    "point capacity-factor bands are exploratory"
+  ],
+  "era5_level_note": "ERA5 reads low at tall masts by about 0.3 m/s offshore to 1.5 m/s onshore",
+  "places": [
+    {
+      "id": "AL",
+      "name": "Albania",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "AL.json"
+    },
+    {
+      "id": "AT",
+      "name": "Austria",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "AT.json"
+    },
+    {
+      "id": "BE",
+      "name": "Belgium",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "BE.json"
+    },
+    {
+      "id": "BG",
+      "name": "Bulgaria",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "BG.json"
+    },
+    {
+      "id": "CH",
+      "name": "Switzerland",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "CH.json"
+    },
+    {
+      "id": "CY",
+      "name": "Cyprus",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "CY.json"
+    },
+    {
+      "id": "CZ",
+      "name": "Czechia",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "CZ.json"
+    },
+    {
+      "id": "DE",
+      "name": "Germany",
+      "type": "country",
+      "region_group": "central",
+      "caveat": "country series from ERA-NUTS may be too variable; rebuild in progress",
+      "file": "DE.json"
+    },
+    {
+      "id": "DK",
+      "name": "Denmark",
+      "type": "country",
+      "region_group": "British_Isles+Denmark",
+      "caveat": null,
+      "file": "DK.json"
+    },
+    {
+      "id": "EE",
+      "name": "Estonia",
+      "type": "country",
+      "region_group": "Nordic+Baltic",
+      "caveat": null,
+      "file": "EE.json"
+    },
+    {
+      "id": "EL",
+      "name": "Greece",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "EL.json"
+    },
+    {
+      "id": "ES",
+      "name": "Spain",
+      "type": "country",
+      "region_group": "Iberia",
+      "caveat": null,
+      "file": "ES.json"
+    },
+    {
+      "id": "FI",
+      "name": "Finland",
+      "type": "country",
+      "region_group": "Nordic+Baltic",
+      "caveat": null,
+      "file": "FI.json"
+    },
+    {
+      "id": "FR",
+      "name": "France",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "FR.json"
+    },
+    {
+      "id": "HR",
+      "name": "Croatia",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "HR.json"
+    },
+    {
+      "id": "HU",
+      "name": "Hungary",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "HU.json"
+    },
+    {
+      "id": "IE",
+      "name": "Ireland",
+      "type": "country",
+      "region_group": "British_Isles+Denmark",
+      "caveat": null,
+      "file": "IE.json"
+    },
+    {
+      "id": "IT",
+      "name": "Italy",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "IT.json"
+    },
+    {
+      "id": "LT",
+      "name": "Lithuania",
+      "type": "country",
+      "region_group": "Nordic+Baltic",
+      "caveat": null,
+      "file": "LT.json"
+    },
+    {
+      "id": "LU",
+      "name": "Luxembourg",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "LU.json"
+    },
+    {
+      "id": "LV",
+      "name": "Latvia",
+      "type": "country",
+      "region_group": "Nordic+Baltic",
+      "caveat": null,
+      "file": "LV.json"
+    },
+    {
+      "id": "ME",
+      "name": "Montenegro",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "ME.json"
+    },
+    {
+      "id": "MK",
+      "name": "North Macedonia",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "MK.json"
+    },
+    {
+      "id": "NL",
+      "name": "Netherlands",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "NL.json"
+    },
+    {
+      "id": "NO",
+      "name": "Norway",
+      "type": "country",
+      "region_group": "Nordic+Baltic",
+      "caveat": null,
+      "file": "NO.json"
+    },
+    {
+      "id": "PL",
+      "name": "Poland",
+      "type": "country",
+      "region_group": "central",
+      "caveat": null,
+      "file": "PL.json"
+    },
+    {
+      "id": "PT",
+      "name": "Portugal",
+      "type": "country",
+      "region_group": "Iberia",
+      "caveat": null,
+      "file": "PT.json"
+    },
+    {
+      "id": "RO",
+      "name": "Romania",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "RO.json"
+    },
+    {
+      "id": "RS",
+      "name": "Serbia",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "RS.json"
+    },
+    {
+      "id": "SE",
+      "name": "Sweden",
+      "type": "country",
+      "region_group": "Nordic+Baltic",
+      "caveat": null,
+      "file": "SE.json"
+    },
+    {
+      "id": "SI",
+      "name": "Slovenia",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "SI.json"
+    },
+    {
+      "id": "SK",
+      "name": "Slovakia",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "SK.json"
+    },
+    {
+      "id": "TR",
+      "name": "T\u00fcrkiye",
+      "type": "country",
+      "region_group": "other",
+      "caveat": null,
+      "file": "TR.json"
+    },
+    {
+      "id": "UK",
+      "name": "United Kingdom",
+      "type": "country",
+      "region_group": "British_Isles+Denmark",
+      "caveat": "country series from ERA-NUTS may be too variable; rebuild in progress",
+      "file": "UK.json"
+    },
+    {
+      "id": "P1",
+      "name": "FINO1",
+      "type": "point",
+      "region_group": "central",
+      "country": "DE",
+      "surf": "offshore",
+      "caveat": null,
+      "file": "P1.json"
+    },
+    {
+      "id": "P2",
+      "name": "Hornsea",
+      "type": "point",
+      "region_group": "British_Isles+Denmark",
+      "country": "UK",
+      "surf": "offshore",
+      "caveat": null,
+      "file": "P2.json"
+    },
+    {
+      "id": "P3",
+      "name": "Hoevsoere",
+      "type": "point",
+      "region_group": "British_Isles+Denmark",
+      "country": "DK",
+      "surf": "offshore",
+      "caveat": null,
+      "file": "P3.json"
+    },
+    {
+      "id": "P4",
+      "name": "Cabauw",
+      "type": "point",
+      "region_group": "central",
+      "country": "NL",
+      "surf": "land",
+      "caveat": null,
+      "file": "P4.json"
+    },
+    {
+      "id": "P5",
+      "name": "N_Germany_land",
+      "type": "point",
+      "region_group": "central",
+      "country": "DE",
+      "surf": "land",
+      "caveat": null,
+      "file": "P5.json"
+    },
+    {
+      "id": "P6",
+      "name": "Bavaria",
+      "type": "point",
+      "region_group": "central",
+      "country": "DE",
+      "surf": "land",
+      "caveat": null,
+      "file": "P6.json"
+    },
+    {
+      "id": "P7",
+      "name": "Baltic_offshore",
+      "type": "point",
+      "region_group": "central",
+      "country": "DE",
+      "surf": "offshore",
+      "caveat": null,
+      "file": "P7.json"
+    },
+    {
+      "id": "P8",
+      "name": "English_Channel",
+      "type": "point",
+      "region_group": "British_Isles+Denmark",
+      "country": "UK",
+      "surf": "offshore",
+      "caveat": null,
+      "file": "P8.json"
+    }
+  ]
+}
