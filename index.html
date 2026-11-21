@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind yield model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <div class="nav-brand" data-edge="nav-brand">Wind yield</div>
+      <button type="button" class="nav-tab" data-tab="dashboard" aria-selected="true">Dashboard</button>
+      <button type="button" class="nav-tab" data-tab="wind-model" aria-selected="false">Wind Model</button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <!-- Dashboard -->
+    <section id="panel-dashboard" class="tab-panel" data-active="true">
+      <div class="container">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title" data-edge="page-title">Dashboard</h1>
+            <p class="page-intro">Overview of the wind-yield model, map, and calibration KPIs.</p>
+          </div>
+          <p class="page-asof" data-page-asof>Data as of —</p>
+        </header>
+        <div class="card thesis-block" id="dash-thesis" data-edge="thesis"></div>
+      </div>
+
+      <section class="map-bleed" id="dash-map-bleed" aria-label="Wind map" tabindex="0">
+        <div class="map-stage">
+          <canvas id="dash-map-canvas"></canvas>
+        </div>
+        <div class="map-chrome container">
+          <div class="map-chrome-inner">
+            <div class="map-toolbar" id="dash-controls" data-edge="map-toolbar"></div>
+            <aside class="map-panel is-open" id="dash-hover-readout" aria-live="polite" data-edge="map-panel">
+              <div class="map-panel-head">
+                <h4 class="map-side-title">Hover readout</h4>
+                <button type="button" class="map-panel-toggle" aria-expanded="true" title="Collapse panel">▾</button>
+              </div>
+              <div class="map-panel-body">
+                <div class="empty-state">Move over the map</div>
+              </div>
+            </aside>
+            <div class="map-bottom">
+              <div class="map-bottom-row">
+                <div class="map-legend" id="dash-legend" data-edge="map-legend">
+                  <div class="map-legend-title" data-legend-title>Capacity factor · raw</div>
+                  <div class="map-legend-bar"></div>
+                  <div class="map-legend-labels">
+                    <span data-legend-min>—</span>
+                    <span data-legend-mid>—</span>
+                    <span data-legend-max>—</span>
+                  </div>
+                  <div class="map-legend-swatches">
+                    <div class="map-legend-swatch"><span class="swatch swatch--faded"></span> Faded: turbine type does not match the surface (land or sea)</div>
+                    <div class="map-legend-swatch"><span class="swatch swatch--outside"></span> Outside the model area</div>
+                  </div>
+                  <div class="map-legend-scale" data-legend-scale></div>
+                </div>
+                <div data-map-badge></div>
+              </div>
+              <p class="map-caption-source" data-map-source data-edge="map-caption">Data as of — · Source: —</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-zoom-hint" hidden>Use Ctrl + scroll to zoom</div>
+      </section>
+
+      <div class="container stack stack--after-map">
+        <div class="grid-2" data-edge="first-card-row">
+          <div class="card" data-edge="first-card">
+            <h3 class="card-title">How to read this</h3>
+            <p class="body-text">
+              Open the map for cell-level capacity factor and hub speed, then switch to
+              <strong>Wind Model</strong> for place paths and 2027–2036 projections.
+            </p>
+            <p class="card-meta">Static demo — precomputed ERA5-derived layers, no live API.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Accuracy</h3>
+            <div class="badge-legend badge-legend--compact" data-badge-legend-dash></div>
+          </div>
+        </div>
+
+        <div data-edge="kpi-strip">
+          <h2 class="section-headline">KPIs</h2>
+          <div id="kpi-strip" class="kpi-strip">
+            <div class="empty-state">Data not loaded</div>
+          </div>
+          <p id="kpi-source-line" class="card-meta">Data as of — · Source: —</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wind Model -->
+    <section id="panel-wind-model" class="tab-panel" data-active="false">
+      <div class="container">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title" data-edge="model-title">Wind Model</h1>
+            <p class="page-intro">Explore cell-level capacity factor and hub speed from the ERA5 climatology.</p>
+          </div>
+          <p class="page-asof" data-page-asof>Data as of —</p>
+        </header>
+        <div class="place-selector" data-edge="place-selector" id="wind-place-selector">
+          <label class="windgen-label" for="wind-place-select">Place</label>
+          <div class="place-selector-row">
+            <select id="wind-place-select" class="windgen-select" data-edge="place-select"></select>
+            <button type="button" class="btn btn--ghost" id="wind-place-europe">Europe</button>
+          </div>
+          <p class="windgen-help">Select a country or point; the map and projection stay in sync.</p>
+        </div>
+      </div>
+
+      <section class="map-bleed" id="model-map-bleed" aria-label="Wind model map" data-edge="map-card" tabindex="0">
+        <div class="map-stage">
+          <canvas id="model-map-canvas"></canvas>
+        </div>
+        <div class="map-chrome container">
+          <div class="map-chrome-inner">
+            <div class="map-toolbar" id="model-controls" data-edge="model-toolbar"></div>
+            <aside class="map-panel is-open" id="model-selected-panel" aria-live="polite">
+              <div class="map-panel-head">
+                <h4 class="map-side-title">Selection</h4>
+                <button type="button" class="map-panel-toggle" aria-expanded="true" title="Collapse panel">▾</button>
+              </div>
+              <div class="map-panel-body">
+                <div id="selected-point-panel">
+                  <div class="empty-state">Select a country, point or cell</div>
+                </div>
+                <p id="selected-point-meta" class="card-meta">Data as of — · Source: —</p>
+              </div>
+            </aside>
+            <div class="map-bottom">
+              <div class="map-bottom-row">
+                <div class="map-legend" id="model-legend">
+                  <div class="map-legend-title" data-legend-title>100 m speed</div>
+                  <div class="map-legend-bar"></div>
+                  <div class="map-legend-labels">
+                    <span data-legend-min>—</span>
+                    <span data-legend-mid>—</span>
+                    <span data-legend-max>—</span>
+                  </div>
+                  <div class="map-legend-swatches" hidden></div>
+                  <div class="map-legend-scale" data-legend-scale></div>
+                </div>
+                <div data-map-badge></div>
+              </div>
+              <p class="map-caption-source" data-map-source>Data as of — · Source: —</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-zoom-hint" hidden>Use Ctrl + scroll to zoom</div>
+      </section>
+
+      <div class="container stack stack--after-map">
+        <section id="windgen-projection" class="windgen" data-edge="projection">
+          <h2 class="section-headline" data-edge="projection-title">Projection 2027–2036</h2>
+          <p class="page-intro windgen-intro">
+            A simulated ten-year path of monthly wind for the selected place; scenario settings below.
+          </p>
+          <p id="windgen-status" class="windgen-status" aria-live="polite"></p>
+
+          <div class="windgen-controls card">
+            <div class="windgen-control">
+              <label class="windgen-label" for="windgen-vol">Volatility <span id="windgen-vol-val">1</span></label>
+              <input id="windgen-vol" type="range" min="0" max="4" step="1" value="2" />
+              <p class="windgen-help">How far a month can stray from normal</p>
+            </div>
+            <div class="windgen-control windgen-control--switch">
+              <label class="windgen-label" for="windgen-pers">Persistence</label>
+              <label class="windgen-switch">
+                <input id="windgen-pers" type="checkbox" checked />
+                <span>On (fitted)</span>
+              </label>
+              <p class="windgen-help">Whether a windy month tends to be followed by another</p>
+            </div>
+            <div class="windgen-control">
+              <label class="windgen-label" for="windgen-drift">Drift %/decade <span id="windgen-drift-val">0</span></label>
+              <input id="windgen-drift" type="range" min="0" max="4" step="1" value="2" />
+              <p class="windgen-help">Change in average wind per decade</p>
+            </div>
+            <div class="windgen-control">
+              <label class="windgen-label" for="windgen-steadiness">Steadiness <span id="windgen-steadiness-val">1</span></label>
+              <input id="windgen-steadiness" type="range" min="0" max="4" step="1" value="2" disabled />
+              <p class="windgen-help">How steady the wind is inside a month</p>
+              <p id="windgen-steadiness-hint" class="windgen-help">Steadiness applies to points and cells</p>
+            </div>
+            <div class="windgen-control windgen-control--actions">
+              <button type="button" class="btn" id="windgen-next-path">Next path</button>
+              <button type="button" class="btn btn--ghost" id="windgen-reset">Reset</button>
+            </div>
+          </div>
+
+          <div class="windgen-charts">
+            <div class="card windgen-chart-main" data-edge="chart-card">
+              <h3 class="card-title">Monthly mean speed at 100 m</h3>
+              <canvas id="windgen-chart-path" class="windgen-canvas windgen-canvas--path" height="280"></canvas>
+              <p class="caption">Band = mean ± 1σ of monthly means · dashed = median · solid = sample path</p>
+              <p id="windgen-cell-note" class="windgen-help" hidden>
+                cell path derived from the country path, a slope and local noise; not separately simulated
+              </p>
+              <p id="windgen-levels-note" class="windgen-help" hidden>country levels under review</p>
+              <div id="windgen-notes" class="windgen-notes"></div>
+              <p id="windgen-draw-ms" class="card-meta" hidden></p>
+            </div>
+            <div class="card windgen-chart-side" data-edge="second-card">
+              <h3 class="card-title">Normal year</h3>
+              <canvas id="windgen-chart-normal" class="windgen-canvas windgen-canvas--normal" height="200"></canvas>
+              <p class="caption">Calendar-month normal with band at current volatility</p>
+            </div>
+          </div>
+
+          <div class="card" id="windgen-within-card" data-edge="within-card">
+            <h3 class="card-title">Within-month</h3>
+            <div id="windgen-within-body">
+              <div class="empty-state">Select a point or cell</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">How it works</h3>
+            <div class="method-steps">
+              <div class="method-step"><div class="step-n">1</div><div class="caption">Monthly 100 m wind from 42 years of ERA5, by country and at eight points</div></div>
+              <div class="method-step"><div class="step-n">2</div><div class="caption">A normal month for each place, plus random anomalies that move together across countries</div></div>
+              <div class="method-step"><div class="step-n">3</div><div class="caption">Volatility, persistence, drift and steadiness are scenario settings</div></div>
+              <div class="method-step"><div class="step-n">4</div><div class="caption">Tested on held-out years and a tall mast; UK 2021-class extremes not fully validated</div></div>
+            </div>
+            <p class="card-meta">Data as of — · Source: WindGen v0.1 / ERA5-derived</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Accuracy</h3>
+            <div class="badge-legend badge-legend--compact" data-badge-legend-model></div>
+            <p class="body-text" style="margin-top: 12px; color: var(--text-secondary)">
+              Metrics load from <code>data/kpis.json</code> on the Dashboard strip. Detail charts TBD.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner" data-edge="footer">
+      <h2>Data sources and attribution</h2>
+      <p>
+        This demo does not redistribute restricted-licence tower data (e.g. FINO).
+        Maps are drawn on canvas from precomputed JSON — no third-party map tiles.
+      </p>
+
+      <h2>ERA5 / Copernicus Climate Change Service</h2>
+      <p>
+        Dataset: ERA5 hourly data on single levels (CDS). Licence: Creative Commons Attribution 4.0 International
+        (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>;
+        CDS copy:
+        <a href="https://cds.climate.copernicus.eu/licences/creative-commons-attribution-4-0-international-public-licence">CDS CC-BY-4.0 text</a>).
+      </p>
+      <p>
+        Required notice for adapted / modified Copernicus Climate Change Service products
+        (Licence to use Copernicus products, §5.1.2–5.1.3;
+        <a href="https://climate.copernicus.eu/sites/default/files/2025-04/licence-to-use-copernicus-products.pdf">licence PDF</a>):
+      </p>
+      <ul>
+        <li>Contains modified Copernicus Climate Change Service information 2026.</li>
+        <li>Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.</li>
+      </ul>
+      <p>
+        Catalogue / citation pattern (CKB use case for ERA5 single levels;
+        <a href="https://confluence.ecmwf.int/display/CKB/Use+Case+2:+ERA5+hourly+data+on+single+levels+from+1940+to+present">CKB Use Case 2</a>;
+        DOI <a href="https://doi.org/10.24381/cds.adbb2d47">10.24381/cds.adbb2d47</a>):
+        Copernicus Climate Change Service (2023): ERA5 hourly data on single levels from 1940 to present.
+        Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI: 10.24381/cds.adbb2d47
+        (Accessed on dates recorded in this repository’s methodology log).
+      </p>
+
+      <h2>Natural Earth (coast / land)</h2>
+      <p>
+        Land polygons (50 m):
+        <a href="https://naciscdn.org/naturalearth/50m/physical/ne_50m_land.zip">ne_50m_land.zip</a>
+        (downloaded 2026-10-31; 457 183 bytes). Terms
+        (<a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth terms of use</a>):
+      </p>
+      <blockquote class="caption" style="margin: 8px 0 12px; padding-left: 12px; border-left: 2px solid var(--border)">
+        All versions of Natural Earth raster + vector map data found on this website are in the public domain.
+        You may use the maps in any manner, including modifying the content and design, electronic dissemination,
+        and offset printing. The primary authors, Tom Patterson and Nathaniel Vaughn Kelso, and all other
+        contributors renounce all financial claim to the maps and invites you to use them for personal,
+        educational, and commercial purposes. No permission is needed to use Natural Earth. Crediting the
+        authors is unnecessary.
+      </blockquote>
+      <p>Suggested credit (optional): Made with Natural Earth.</p>
+
+      <h2>North Sea farm generation (Dryad / Elexon BMRS)</h2>
+      <p>
+        Package DOI:
+        <a href="https://doi.org/10.5061/dryad.w6m905qzk">https://doi.org/10.5061/dryad.w6m905qzk</a>.
+        Dryad licence name (package metadata): Creative Commons Zero v1.0 Universal
+        (<a href="https://spdx.org/licenses/CC0-1.0.html">CC0-1.0</a>).
+      </p>
+      <p>Exact notice from the Dryad package README:</p>
+      <ul>
+        <li>
+          Contains BMRS data © Elexon Limited copyright and database right [2023]. See license to use BMRS open data at
+          <a href="https://www.elexon.co.uk/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/">https://www.elexon.co.uk/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/</a>.
+        </li>
+        <li>
+          The data is derived from BMRS data © Elexon Limited copyright and database right [2023]. See license to use BMRS open data at
+          <a href="https://www.elexon.co.uk/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/">https://www.elexon.co.uk/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/</a>.
+        </li>
+      </ul>
+      <p class="caption">
+        Live fetch of the Elexon licence HTML was blocked by Cloudflare in this session; wording above is the package’s required notice with the official licence URL.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/place.js"></script>
+  <script src="js/cellpath.js"></script>
+  <script src="js/windmap.js"></script>
+  <script src="js/windgen.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

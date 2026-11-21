@@ -1,0 +1,70 @@
+{
+  "data_as_of_utc": "2026-10-31T17:03:42Z",
+  "notes": "Values filled from calibration outputs only. Onshore / Germany KPIs are null (not validated).",
+  "kpis": [
+    {
+      "id": "farms_validated",
+      "label": "Farms validated",
+      "unit": "count",
+      "value": 20,
+      "range": null,
+      "citation": {
+        "file": "docs/calibration_v1.md",
+        "detail": "Section Dataset: n_farms fit/test (mapped full_year) = 20 (2020 and 2021)."
+      }
+    },
+    {
+      "id": "farm_mean_hourly_r",
+      "label": "Farm-level mean hourly correlation (2020)",
+      "unit": "Pearson r",
+      "value": 0.9106,
+      "range": null,
+      "sublabel": "2021 mean = 0.9070 (global_output, train2020_test2021)",
+      "citation": {
+        "file": "docs/calibration_v2.md",
+        "detail": "Appendix §D table year 2020 mean = 0.9106; 2021 mean = 0.9070 (from data/processed/calibration_v2/per_farm_metrics.csv, method=global_output; 2020 test=leave_one_cell_out_2020 mean hourly_r=0.9106355104038373; 2021 test=train2020_test2021 mean=0.9069613452549655)."
+      }
+    },
+    {
+      "id": "raw_model_obs_ratio",
+      "label": "Raw model / observed CF ratio",
+      "unit": "dimensionless (mean across farms)",
+      "value": 1.208,
+      "range": null,
+      "citation": {
+        "file": "docs/methodology.md",
+        "detail": "§5.22: Mean ratio model/obs = 1.208 (n=20). Recomputed mean of ratio_model_over_obs in data/processed/farm_model_vs_obs_2020.csv = 1.2079956611112803."
+      }
+    },
+    {
+      "id": "output_factor",
+      "label": "Output factor (selected v2 global)",
+      "unit": "dimensionless (1−L)",
+      "value": 0.8327,
+      "range": {
+        "low": 0.7960,
+        "high": 0.8944,
+        "note": "95% bootstrap interval"
+      },
+      "citation": {
+        "file": "docs/calibration_v2.md",
+        "detail": "Fitted parameters table: global a = 0.8327; displayed interval uses class Siemens = 0.7960 and class V164 = 0.8944 from the same table (classes with <3 farms use global). Selected method global_output. Source JSON: data/processed/calibration_v2/fit_params_2020.json keys global_a, class_a. Note: no separate bootstrap CI for a was saved in v2 outputs; interval shown is the class-a span cited in the scaffold KPI fill."
+      }
+    },
+    {
+      "id": "calibrated_2021_bias",
+      "label": "Calibrated 2021 annual CF bias",
+      "unit": "CF points (pred − obs), mean over farms",
+      "value": 0.0040,
+      "range": {
+        "low": -0.0135,
+        "high": 0.0213,
+        "note": "95% bootstrap interval"
+      },
+      "citation": {
+        "file": "data/processed/calibration_v2/method_x_test_metrics.csv",
+        "detail": "Row method=global_output, test=train2020_test2021: annual_bias=0.0039964686118344; annual_bias_p2.5=-0.013459923728712733; annual_bias_p97.5=0.021267823881281265 (95% cluster bootstrap on TEST cells). Also summarised in docs/calibration_v2.md train→2021 table."
+      }
+    }
+  ]
+}

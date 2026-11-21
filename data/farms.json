@@ -1,0 +1,347 @@
+{
+  "farms": [
+    {
+      "name": "Aberdeen",
+      "lat": 57.22569,
+      "lon": -1.99657,
+      "capacity_mw": 95.0,
+      "observed_cf_2020": 0.3747,
+      "modelled_raw_cf_2020": 0.4339,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used (mid of range 93.2-96.8)",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Barrow",
+      "lat": 53.99147,
+      "lon": -3.29597,
+      "capacity_mw": 90.0,
+      "observed_cf_2020": 0.324,
+      "modelled_raw_cf_2020": 0.4402,
+      "standin_turbine": "Vestas_V90_3MW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Beatrice",
+      "lat": 58.25406,
+      "lon": -2.88455,
+      "capacity_mw": 588.0,
+      "observed_cf_2020": 0.464,
+      "modelled_raw_cf_2020": 0.5206,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "BurboBank",
+      "lat": 53.48867,
+      "lon": -3.18725,
+      "capacity_mw": 90.0,
+      "observed_cf_2020": 0.3706,
+      "modelled_raw_cf_2020": 0.5008,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "BurboBankExtension",
+      "lat": 53.4837,
+      "lon": -3.27307,
+      "capacity_mw": 258.0,
+      "observed_cf_2020": 0.4439,
+      "modelled_raw_cf_2020": 0.4682,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Dudgeon",
+      "lat": 53.26536,
+      "lon": 1.38072,
+      "capacity_mw": 402.0,
+      "observed_cf_2020": 0.4974,
+      "modelled_raw_cf_2020": 0.5654,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "GreaterGabbard",
+      "lat": 51.88398,
+      "lon": 1.93584,
+      "capacity_mw": 504.0,
+      "observed_cf_2020": 0.4371,
+      "modelled_raw_cf_2020": 0.5821,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "GunfleetSands",
+      "lat": 51.73016,
+      "lon": 1.22923,
+      "capacity_mw": 172.8,
+      "observed_cf_2020": 0.3936,
+      "modelled_raw_cf_2020": 0.5228,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "GwyntyMor",
+      "lat": 53.45882,
+      "lon": -3.58427,
+      "capacity_mw": 576.0,
+      "observed_cf_2020": 0.3766,
+      "modelled_raw_cf_2020": 0.5266,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "HornseaOne",
+      "lat": 53.8833,
+      "lon": 1.92188,
+      "capacity_mw": 1218.0,
+      "observed_cf_2020": 0.4853,
+      "modelled_raw_cf_2020": 0.5755,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "HumberGateway",
+      "lat": 53.64429,
+      "lon": 0.29312,
+      "capacity_mw": 219.0,
+      "observed_cf_2020": 0.4657,
+      "modelled_raw_cf_2020": 0.5659,
+      "standin_turbine": "Vestas_V112_3MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "HywindScotland",
+      "lat": 57.48427,
+      "lon": -1.36214,
+      "capacity_mw": 30.0,
+      "observed_cf_2020": 0.5315,
+      "modelled_raw_cf_2020": 0.5508,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Lincs",
+      "lat": 53.19047,
+      "lon": 0.4916,
+      "capacity_mw": 270.0,
+      "observed_cf_2020": 0.4624,
+      "modelled_raw_cf_2020": 0.5699,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "LondonArray",
+      "lat": 51.62556,
+      "lon": 1.49632,
+      "capacity_mw": 630.0,
+      "observed_cf_2020": 0.4685,
+      "modelled_raw_cf_2020": 0.5595,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Rampion",
+      "lat": 50.66885,
+      "lon": -0.27636,
+      "capacity_mw": 400.0,
+      "observed_cf_2020": 0.4531,
+      "modelled_raw_cf_2020": 0.5582,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "RobinRigg",
+      "lat": 54.75602,
+      "lon": -3.71055,
+      "capacity_mw": 174.0,
+      "observed_cf_2020": 0.4124,
+      "modelled_raw_cf_2020": 0.3964,
+      "standin_turbine": "Vestas_V90_3MW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Walney1",
+      "lat": 54.04048,
+      "lon": -3.51254,
+      "capacity_mw": 183.6,
+      "observed_cf_2020": 0.4128,
+      "modelled_raw_cf_2020": 0.5819,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "Walney2",
+      "lat": 54.08103,
+      "lon": -3.60432,
+      "capacity_mw": 183.6,
+      "observed_cf_2020": 0.4773,
+      "modelled_raw_cf_2020": 0.5819,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "WestermostRough",
+      "lat": 53.80588,
+      "lon": 0.14982,
+      "capacity_mw": 210.0,
+      "observed_cf_2020": 0.5164,
+      "modelled_raw_cf_2020": 0.5258,
+      "standin_turbine": "Vestas_V164_7MW_offshore",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    },
+    {
+      "name": "WestOfDuddonSands",
+      "lat": 53.98406,
+      "lon": -3.46438,
+      "capacity_mw": 389.0,
+      "observed_cf_2020": 0.4785,
+      "modelled_raw_cf_2020": 0.5819,
+      "standin_turbine": "Siemens_SWT_107_3600kW",
+      "citations": {
+        "lat": "data/raw/farms/farm_positions.csv lat_deg_n",
+        "lon": "data/raw/farms/farm_positions.csv lon_deg_e",
+        "capacity_mw": "data/processed/farm_observed_cf_2020.csv capacity_used",
+        "observed_cf_2020": "data/processed/farm_model_vs_obs_2020.csv observed_cf",
+        "modelled_raw_cf_2020": "data/processed/farm_model_vs_obs_2020.csv modelled_gross_cf",
+        "standin_turbine": "data/processed/farm_turbine_mapping.csv atlite_name (mapped) / farm_model_vs_obs_2020 standin_turbine"
+      }
+    }
+  ],
+  "n": 20,
+  "built_utc": "2026-10-31T18:22:09Z",
+  "note": "2020 observed vs modelled raw CF from frozen v0 comparison output."
+}
